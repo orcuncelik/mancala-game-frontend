@@ -1,0 +1,60 @@
+.board {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .middle-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .player1-big-pit,
+  .player2-big-pit {
+    display: flex;
+    align-items: center;
+  }
+  
+  .player1-pits,
+  .player2-pits {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .player1-pits {
+    flex-direction: row-reverse;
+  }
+  
+  .pit {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+  }
+  
+  .stones {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .selected {
+    background-color: #ffd700;
+  }
+
+
+.big-pit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px; /* Increase the width */
+    height: 150px; /* Increase the height */
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #ccc;
+    border: 2px solid #333;
+  }
+  
+  
