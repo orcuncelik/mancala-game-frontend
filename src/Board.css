@@ -49,8 +49,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px; /* Increase the width */
-    height: 150px; /* Increase the height */
+    width: 100px; 
+    height: 150px;
     font-size: 24px;
     font-weight: bold;
     background-color: #ccc;
