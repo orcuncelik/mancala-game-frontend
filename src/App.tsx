@@ -85,13 +85,16 @@
     };
 
     const getCurrentPlayer = () => {
+      if (isGameEnded()) {
+        return "";
+      }
       switch (gameState?.currentPlayer) {
         case PlayerType.FirstPlayer:
           return "First Player's Turn";
         case PlayerType.SecondPlayer:
           return "Second Player's Turn";
         default:
-          return '';
+          return "";
       }
     };
 
