@@ -1,4 +1,6 @@
+import { PlayerType } from "./PlayerType";
+
 export interface SelectedPit {
-    player: string;
+    player: PlayerType;
     index: number;
   }

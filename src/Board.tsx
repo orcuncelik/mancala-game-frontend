@@ -2,29 +2,26 @@ import React from 'react';
 import './Board.css';
 
 import { GameState } from './dto/GameState'
-
-interface Selected {
-  player: string;
-  index: number;
-}
+import { SelectedPit } from './dto/SelectedPit'
+import { PlayerType } from './dto/PlayerType';
 
 interface BoardProps {
   gameState: GameState;
-  selected: Selected | null;
-  onPitClick: (player: string, index: number) => void;
+  selected: SelectedPit | null;
+  onPitClick: (player: PlayerType, index: number) => void;
+  isGameEnded: boolean;
 }
 
-const Board: React.FC<BoardProps> = ({ gameState, selected, onPitClick }) => {
+const Board: React.FC<BoardProps> = ({ gameState, selected, onPitClick, isGameEnded }) => {
   const { player1Pits, player1BigPit, player2Pits, player2BigPit, currentPlayer } = gameState;
 
-  const isSelected = (player: string, index: number) => {
+  const isSelected = (player: PlayerType, index: number) => {
     return selected && selected.player === player && selected.index === index;
   };
 
-  const handleClick = (player: string, index: number) => {
-    console.log(currentPlayer);
+  const handleClick = (player: PlayerType, index: number) => {
     
-    if (currentPlayer === player) {
+    if (!isGameEnded && currentPlayer === player) {
       onPitClick(player, index);
     }
   };
@@ -37,8 +34,8 @@ const Board: React.FC<BoardProps> = ({ gameState, selected, onPitClick }) => {
           {player1Pits.map((stones, index) => (
             <div
               key={index}
-              className={`pit${isSelected('FIRST_PLAYER', index) ? ' selected' : ''}`}
-              onClick={() => handleClick('FIRST_PLAYER', index)}
+              className={`pit${isSelected(PlayerType.FirstPlayer, index) ? ' selected' : ''}`}
+              onClick={() => handleClick(PlayerType.FirstPlayer, index)}
             >
               <span className="stones">{stones}</span>
             </div>
@@ -48,8 +45,8 @@ const Board: React.FC<BoardProps> = ({ gameState, selected, onPitClick }) => {
           {player2Pits.map((stones, index) => (
             <div
               key={index}
-              className={`pit${isSelected('SECOND_PLAYER', index) ? ' selected' : ''}`}
-              onClick={() => handleClick('SECOND_PLAYER', index)}
+              className={`pit${isSelected(PlayerType.SecondPlayer, index) ? ' selected' : ''}`}
+              onClick={() => handleClick(PlayerType.SecondPlayer, index)}
             >
               <span className="stones">{stones}</span>
             </div>

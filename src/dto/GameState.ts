@@ -1,9 +1,5 @@
 import { GameStatus } from './GameStatus';
-
-export enum PlayerType {
-  FIRST_PLAYER = 'FIRST_PLAYER',
-  SECOND_PLAYER = 'SECOND_PLAYER',
-}
+import { PlayerType } from "./PlayerType";
 
 export interface GameState {
     gameId: string;
