@@ -15,6 +15,7 @@
 
 .board {
   display: inline-block;
+  user-select: none;
 }
 
 .info {
